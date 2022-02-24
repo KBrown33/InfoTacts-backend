@@ -11,11 +11,8 @@ import java.util.List;
 @RequestMapping(path = "/api")
 public class UserController {
 
-
-
-
     private UserService userService;
-    @Autowired
+//    @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
 

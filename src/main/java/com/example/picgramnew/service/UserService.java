@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class UserService {
 
-    @Autowired
+//    @Autowired
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
 
@@ -20,7 +20,7 @@ public class UserService {
     private UserRepository userRepository;
 
 
-//    private MessageRepository messageRepository;
+
 
     public List<User> getAllUser() {
         List<User> user = userRepository.findAll();
@@ -39,7 +39,6 @@ public class UserService {
 
     public User updateUsers(@PathVariable(value = "userId") Long userId, @RequestBody User body) {
         User user = (User) userRepository.getById(userId);
-        user.setName(body.getName());
         return (User) userRepository.save(user);
     }
 
