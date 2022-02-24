@@ -1,6 +1,7 @@
 package com.example.picgramnew.service;
 
 import com.example.picgramnew.model.User;
+import com.example.picgramnew.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,7 @@ public class UserService {
     private UserRepository userRepository;
 
 
-    private MessageRepository messageRepository;
+//    private MessageRepository messageRepository;
 
     public List<User> getAllUser() {
         List<User> user = userRepository.findAll();
@@ -28,18 +29,18 @@ public class UserService {
     }
 
     public User getUsers(@PathVariable Long userId) {
-        User user =  userRepository.getById(userId);
+        User user = (User) userRepository.getById(userId);
         return  user;
     }
 
     public User createUser(User body) {
-        return userRepository.save(body);
+        return (User) userRepository.save(body);
     }
 
     public User updateUsers(@PathVariable(value = "userId") Long userId, @RequestBody User body) {
-        User user = userRepository.getById(userId);
+        User user = (User) userRepository.getById(userId);
         user.setName(body.getName());
-        return userRepository.save(user);
+        return (User) userRepository.save(user);
     }
 
     public String deleteUsers(@PathVariable(value = "userId") Long userId) {
