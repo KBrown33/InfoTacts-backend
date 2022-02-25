@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -46,9 +47,12 @@ public class UserController {
 
     }
 
-    @DeleteMapping("/users/{userId}")
-    public String deleteUsers(@PathVariable(value = "userId") Long userId) {
-        return userService .deleteUsers(userId);
+    @DeleteMapping("/users/{userId}/")
+    public Optional<User> deleteUser (@PathVariable(value = "userId") Long userId){
+
+        return userService.deleteUser(userId);
+
+
     }
 }
 

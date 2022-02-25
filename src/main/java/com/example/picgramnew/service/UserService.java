@@ -62,9 +62,20 @@ public class UserService {
         }
     }
 
+    public Optional<User> deleteUser(Long userId) {
+        System.out.println("service calling deleteUser ==>");
+        Optional<User> user = userRepository.findById(userId);
 
-    public String deleteUsers(Long userId) {
-        userRepository.deleteById(userId);
-        return "deleted User " + userId;
+        if (((Optional<?>) user).isPresent()) {
+            userRepository.deleteById(userId);
+            return user;
+        } else {
+            throw new InformationNotFoundException("category with id " + userId + " not found");
+        }
     }
 }
+//    public String deleteUsers(Long userId) {
+//        userRepository.deleteById(userId);
+//        return "deleted User " + userId;
+//    }
+
