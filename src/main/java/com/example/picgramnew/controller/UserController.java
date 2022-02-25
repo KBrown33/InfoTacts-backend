@@ -1,5 +1,6 @@
 package com.example.picgramnew.controller;
 
+import com.example.picgramnew.exceptions.InformationExistException;
 import com.example.picgramnew.model.User;
 import com.example.picgramnew.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 public class UserController {
 
     private UserService userService;
-//    @Autowired
+    @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
 
@@ -33,8 +34,8 @@ public class UserController {
     }
 
     @PostMapping("/users/")
-    public User createUsers(@RequestBody User body) {
-        return userService.createUser(body);
+    public User createUsers(@RequestBody User userObject) {
+        return userService.createUser(userObject);
     }
 
     @PutMapping("/users/{userId}")
