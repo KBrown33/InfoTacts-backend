@@ -38,9 +38,12 @@ public class UserController {
         return userService.createUser(userObject);
     }
 
-    @PutMapping("/users/{userId}")
-    public User updateUsers(@PathVariable(value = "userId") Long userId, @RequestBody User body) {
-        return userService.updateUsers(userId, body);
+    @PutMapping("/users/{userId}/")
+    public User updateUser (@PathVariable(value = "userId") Long userId, @RequestBody User
+            userObject){
+        return userService.updateUser(userId, userObject);
+
+
     }
 
     @DeleteMapping("/users/{userId}")

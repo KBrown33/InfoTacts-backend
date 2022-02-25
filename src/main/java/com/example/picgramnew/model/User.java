@@ -24,6 +24,19 @@ public class User {
     @Column
     private String address;
 
+    @Column
+    private String number;
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+
+
     public Long getId() {
         return id;
     }
