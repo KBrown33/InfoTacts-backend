@@ -74,8 +74,5 @@ public class UserService {
         }
     }
 }
-//    public String deleteUsers(Long userId) {
-//        userRepository.deleteById(userId);
-//        return "deleted User " + userId;
-//    }
+
 

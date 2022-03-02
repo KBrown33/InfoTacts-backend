@@ -20,10 +20,7 @@ public class UserController {
 
     }
 
-    //    @GetMapping("/hello-world/")
-//    public String helloWorld(){
-//        return "Hello World";
-//    }
+
     @GetMapping(path = "/users/")
     public List<User> getAllUsers(          ) {
         return userService.getAllUser();
